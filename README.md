@@ -53,13 +53,13 @@ This enables push/pull, PR creation, and cloning from inside the IDE.
 
 The branch popup (click the branch name in the bottom-right corner of the IDE, or `Git → Branches`) is your main hub:
 
-| Action | Shortcut (Win/Linux) | Shortcut (Mac) |
-|---|---|---|
-| Update Project (pull) | `Ctrl+T` | `Cmd+T` |
-| Commit | `Ctrl+K` | `Cmd+K` |
-| Push | `Ctrl+Shift+K` | `Cmd+Shift+K` |
-| New Branch | `Ctrl+Alt+N` | `Cmd+Alt+N` |
-| Git history / log | `Alt+9` | `Cmd+9` |
+| Action                | Shortcut (Win/Linux) | Shortcut (Mac) |
+|-----------------------|----------------------|----------------|
+| Update Project (pull) | `Ctrl+T`             | `Cmd+T`        |
+| Commit                | `Ctrl+K`             | `Cmd+K`        |
+| Push                  | `Ctrl+Shift+K`       | `Cmd+Shift+K`  |
+| New Branch            | `Ctrl+Alt+N`         | `Cmd+Alt+N`    |
+| Git history / log     | `Alt+9`              | `Cmd+9`        |
 
 ### Feature Branch Naming Convention
 
