@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    android:backgroundTint="#F9F9F9"
+    tools:context=".WelcomeScreen">
+
+    <TextView
+        android:id="@+id/welcome_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Welcome to the"
+        android:textColor="#73576E"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.181" />
+
+    <TextView
+        android:id="@+id/welcome_title"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="MerchMob"
+        android:textColor="#3A1133"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="@+id/welcome_subtitle"
+        app:layout_constraintStart_toStartOf="@+id/welcome_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_subtitle" />
+
+    <Button
+        android:id="@+id/welcome_login_button"
+        android:layout_width="203dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="152dp"
+        android:backgroundTint="#FFFFFF"
+        android:elevation="8dp"
+        android:fontFamily="@font/lexend"
+        android:letterSpacing="-0.02"
+        android:outlineSpotShadowColor="#BC2C2C"
+        android:padding="10sp"
+        android:text="Login"
+        android:textColor="#FA5213"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/welcome_title"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/welcome_title"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_title" />
+
+    <Button
+        android:id="@+id/welcome_register_button"
+        android:layout_width="202dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FA5213"
+        android:elevation="8dp"
+        android:fontFamily="@font/lexend"
+        android:letterSpacing="-0.02"
+        android:outlineSpotShadowColor="#BC2C2C"
+        android:padding="10sp"
+        android:text="Register"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/welcome_login_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/welcome_login_button"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_login_button" />
+
+    <ImageButton
+        android:id="@+id/welcome_admin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/welcome_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_manage" />
+</androidx.constraintlayout.widget.ConstraintLayout>
