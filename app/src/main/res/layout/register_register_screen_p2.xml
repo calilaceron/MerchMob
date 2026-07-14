@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterScreenP2">
+
+    <Button
+        android:id="@+id/register_next_button2"
+        android:layout_width="205dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="356dp"
+        android:backgroundTint="#FA5213"
+        android:fontFamily="@font/lexend"
+        android:letterSpacing="-0.02"
+        android:padding="10sp"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="@+id/registerP1_title2"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="@+id/registerP1_title2"
+        app:layout_constraintTop_toBottomOf="@+id/registerP1_title2" />
+
+    <TextView
+        android:id="@+id/registerP1_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Register Account"
+        android:textColor="#73576E"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <ImageButton
+        android:id="@+id/register_1_back_button2"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/registerP1_title2"
+        app:layout_constraintEnd_toStartOf="@+id/registerP1_title2"
+        app:layout_constraintTop_toTopOf="@+id/registerP1_title2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/back_chevron" />
+
+    <TextView
+        android:id="@+id/register_role_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Are you a..."
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/register_1_back_button2"
+        app:layout_constraintTop_toBottomOf="@+id/registerP1_title2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="144dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/register_role_heading"
+        app:layout_constraintTop_toBottomOf="@+id/register_role_heading">
+
+        <RadioButton
+            android:id="@+id/role_buyer_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:checked="true"
+            android:fontFamily="@font/lexend_medium"
+            android:letterSpacing="-0.02"
+            android:text="Buyer"
+            android:textColor="#3A1133"
+            app:buttonTint="#FA5213" />
+
+        <RadioButton
+            android:id="@+id/role_saller_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:fontFamily="@font/lexend_medium"
+            android:letterSpacing="-0.02"
+            android:text="Seller"
+            android:textColor="#3A1133"
+            app:buttonTint="#EF5015" />
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

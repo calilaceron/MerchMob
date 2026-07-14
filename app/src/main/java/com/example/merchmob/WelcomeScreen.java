@@ -64,7 +64,7 @@ public class WelcomeScreen extends AppCompatActivity {
     }
 
     private void goRegister() {
-        Intent intent = new Intent(WelcomeScreen.this, RegisterScreen.class);
+        Intent intent = new Intent(WelcomeScreen.this, RegisterScreenP1.class);
         startActivity(intent);
     }
 

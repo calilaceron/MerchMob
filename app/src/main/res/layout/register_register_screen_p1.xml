@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="80dp"
+    tools:context=".RegisterScreenP1">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_confirm_input"
+        android:layout_width="320dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:hint="Confirm Password"
+        android:letterSpacing="-0.02"
+        android:padding="15sp"
+        android:textColor="#3A1133"
+        android:textColorHighlight="#C4B8C2"
+        android:textColorHint="#C4B8C2"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_input"
+        tools:layout_editor_absoluteX="41dp" />
+
+    <TextView
+        android:id="@+id/register_confirm_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Set up a password"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/register_confirm_input"
+        app:layout_constraintStart_toStartOf="@+id/register_confirm_input" />
+
+    <TextView
+        android:id="@+id/register_description_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="What are you like?"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/register_description_input"
+        app:layout_constraintStart_toStartOf="@+id/register_description_input" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_description_input"
+        android:layout_width="323dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:hint="I like long walks on the beach..."
+        android:letterSpacing="-0.02"
+        android:padding="15sp"
+        android:textColor="#3A1133"
+        android:textColorHighlight="#C4B8C2"
+        android:textColorHint="#C4B8C2"
+        app:layout_constraintTop_toBottomOf="@+id/register_confirm_input"
+        tools:layout_editor_absoluteX="42dp" />
+
+    <TextView
+        android:id="@+id/register_password_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Set up a password"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/register_password_input"
+        app:layout_constraintStart_toStartOf="@+id/register_password_input" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_password_input"
+        android:layout_width="320dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:hint="8 characters minimum"
+        android:letterSpacing="-0.02"
+        android:padding="15sp"
+        android:textColor="#3A1133"
+        android:textColorHighlight="#C4B8C2"
+        android:textColorHint="#C4B8C2"
+        app:layout_constraintTop_toBottomOf="@+id/register_username_input"
+        tools:layout_editor_absoluteX="41dp" />
+
+    <TextView
+        android:id="@+id/registerP1_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Register Account"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <ImageButton
+        android:id="@+id/register_1_back_button"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/registerP1_title"
+        app:layout_constraintEnd_toStartOf="@+id/registerP1_title"
+        app:layout_constraintTop_toTopOf="@+id/registerP1_title"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/back_chevron" />
+
+    <TextView
+        android:id="@+id/register_username_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="What's your name?"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/register_username_input"
+        app:layout_constraintStart_toStartOf="@+id/register_username_input" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_username_input"
+        android:layout_width="320dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="52dp"
+        android:background="@android:color/transparent"
+        android:hint="Juan Dela Cruz"
+        android:letterSpacing="-0.02"
+        android:padding="15sp"
+        android:textColor="#3A1133"
+        android:textColorHighlight="#C4B8C2"
+        android:textColorHint="#C4B8C2"
+        app:layout_constraintTop_toBottomOf="@+id/registerP1_title"
+        tools:layout_editor_absoluteX="41dp" />
+
+    <Button
+        android:id="@+id/register_next_button"
+        android:layout_width="205dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#FA5213"
+        android:fontFamily="@font/lexend"
+        android:letterSpacing="-0.02"
+        android:padding="10sp"
+        android:text="Next"
+        app:layout_constraintEnd_toEndOf="@+id/register_description_input"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/register_description_input"
+        app:layout_constraintTop_toBottomOf="@+id/register_description_input" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

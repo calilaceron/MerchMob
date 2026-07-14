@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MerchMob">
         <activity
-            android:name=".MainActivity"
+            android:name=".WelcomeScreen"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -21,10 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".WelcomeScreen"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
 
         <meta-data
             android:name="preloaded_fonts"
@@ -32,6 +28,10 @@
 
         <activity
             android:name=".RegisterScreenP1"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".RegisterScreenP2"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
