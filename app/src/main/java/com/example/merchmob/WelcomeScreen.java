@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +18,7 @@ public class WelcomeScreen extends AppCompatActivity {
     TextView title;
     Button registerButton;
     Button loginButton;
+    ImageButton adminButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,14 @@ public class WelcomeScreen extends AppCompatActivity {
                 goLogin();
             }
         });
+
+        adminButton = findViewById(R.id.welcome_admin_button);
+        adminButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAdmin();
+            }
+        });
     }
 
     private void goLogin() {
@@ -55,6 +65,11 @@ public class WelcomeScreen extends AppCompatActivity {
 
     private void goRegister() {
         Intent intent = new Intent(WelcomeScreen.this, RegisterScreen.class);
+        startActivity(intent);
+    }
+
+    private void goAdmin() {
+        Intent intent = new Intent(WelcomeScreen.this, AdminScreen.class);
         startActivity(intent);
     }
 }
