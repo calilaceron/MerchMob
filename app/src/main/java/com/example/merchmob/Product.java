@@ -1,6 +1,5 @@
 package com.example.merchmob;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 import io.realm.RealmObject;
@@ -11,7 +10,7 @@ public class Product extends RealmObject {
     private String productUUID = UUID.randomUUID().toString();
     String sellerUUID;
     String itemName;
-    BigDecimal price;
+    float price;
     String productDescription;
     int stock;
     String productImageName;
@@ -40,11 +39,11 @@ public class Product extends RealmObject {
         this.productDescription = productDescription;
     }
 
-    public BigDecimal getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
