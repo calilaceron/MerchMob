@@ -124,3 +124,4 @@ If a pull or merge results in conflicts, Android Studio opens a three-way merge 
 
 - Minimum supported Android version and other build details are in `app/build.gradle`.
 - If storage permission issues occur on Android 14+, ensure the app is using the updated media/storage permission model rather than legacy `WRITE_EXTERNAL_STORAGE`.
+- When updating master, make sure to sync the Gradle setup to reflect the Realm configurations.

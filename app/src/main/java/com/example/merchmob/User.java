@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 import io.realm.RealmObject;
+import io.realm.RealmList;
 import io.realm.annotations.PrimaryKey;
 
 public class User extends RealmObject {
@@ -14,7 +15,7 @@ public class User extends RealmObject {
     String userDescription;
     String role;
     String userImageName;
-    CartItem[] userCart;
+    RealmList<CartItem> userCart;
 
     public String getUserUUID() {
         return userUUID;
@@ -64,11 +65,11 @@ public class User extends RealmObject {
         this.userImageName = userImageName;
     }
 
-    public CartItem[] getUserCart() {
+    public RealmList<CartItem> getUserCart() {
         return userCart;
     }
 
-    public void setUserCart(CartItem[] userCart) {
+    public void setUserCart(RealmList<CartItem> userCart) {
         this.userCart = userCart;
     }
 
@@ -81,7 +82,7 @@ public class User extends RealmObject {
                 ", userDescription='" + userDescription + '\'' +
                 ", role='" + role + '\'' +
                 ", userImageName='" + userImageName + '\'' +
-                ", userCart=" + Arrays.toString(userCart) +
+                ", userCart=" + userCart +
                 '}';
     }
 }
