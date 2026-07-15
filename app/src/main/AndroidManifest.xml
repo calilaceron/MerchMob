@@ -62,6 +62,10 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".EditAccount"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".ImageActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
