@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
     Button loginButton;
     ImageButton loginBackButton;
     Realm realm;
-    SharedPreferences prefs = getSharedPreferences("data", 0);
+    SharedPreferences prefs ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,8 @@ public class Login extends AppCompatActivity {
         loginPassword = findViewById(R.id.loginPassword);
         loginButton = findViewById(R.id.loginButton);
         loginBackButton = findViewById(R.id.loginBackButton);
+        realm =Realm.getDefaultInstance();
+        prefs = getSharedPreferences("data", 0);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +68,7 @@ public class Login extends AppCompatActivity {
         if (inputtedUsername.isEmpty() || inputtedPassword.isEmpty()){
             Toast.makeText(Login.this, "The username or password is empty.", Toast.LENGTH_SHORT).show();
         } else {
-            realm =Realm.getDefaultInstance();
+
             long specificUserCount = realm.where(User.class).equalTo("username", inputtedUsername).count();
             boolean userExists = specificUserCount > 0 ;
 
@@ -97,6 +99,7 @@ public class Login extends AppCompatActivity {
         }
     }
 
+    @Override
     public void onDestroy() {
         super.onDestroy();
 

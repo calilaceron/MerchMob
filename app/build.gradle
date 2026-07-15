@@ -36,10 +36,17 @@ android {
 }
 
 dependencies {
+
+    implementation libs.recyclerview
+    implementation files('libs/realmadapter4.0.0.jar')
+
     implementation libs.activity.ktx
     implementation libs.appcompat
     implementation libs.constraintlayout
     implementation libs.material
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    implementation libs.recyclerview
 
     testImplementation libs.junit
     androidTestImplementation libs.espresso.core
