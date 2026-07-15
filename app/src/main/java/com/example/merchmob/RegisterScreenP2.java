@@ -60,26 +60,15 @@ public class RegisterScreenP2 extends AppCompatActivity {
                     user.setRole(finalRole);
                 }
             });
-            if (finalRole.equals("Buyer")) {
-                goBuyerHome();
-            } else {
-                goSellerHome();
-            }
+            goWelcome();
 
         });
     }
 
-    private void goBuyerHome() {
+    private void goWelcome() {
         // Proceed to Buyer Screen
-//        Intent intent = new Intent(RegisterScreenP2.this, BuyerHomeScreen.class);
-//        startActivity(intent);
-//        finish();
-    }
-
-    private void goSellerHome() {
-        // Proceed to Seller Screen
-//        Intent intent = new Intent(RegisterScreenP2.this, SellerHomeScreen.class);
-//        startActivity(intent);
-//        finish();
+        Intent intent = new Intent(RegisterScreenP2.this, WelcomeScreen.class);
+        startActivity(intent);
+        finish();
     }
 }
