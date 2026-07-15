@@ -80,7 +80,7 @@ public class Login extends AppCompatActivity {
                 if (inputtedPassword.equals(recordedPassword)){
 
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("username", inputtedUsername);
+                    editor.putString("loggedUsername", inputtedUsername);
                     editor.apply();
 
                     if (user.getRole().equals("buyer")){
