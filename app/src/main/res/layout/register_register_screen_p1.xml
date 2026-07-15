@@ -5,23 +5,45 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    android:backgroundTint="#F9F9F9"
     android:elevation="80dp"
     tools:context=".RegisterScreenP1">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/register_confirm_input"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/register_confirm_layout"
         android:layout_width="320dp"
-        android:layout_height="57dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@android:color/transparent"
-        android:hint="Confirm Password"
-        android:letterSpacing="-0.02"
-        android:padding="15sp"
-        android:textColor="#3A1133"
-        android:textColorHighlight="#C4B8C2"
-        android:textColorHint="#C4B8C2"
-        app:layout_constraintTop_toBottomOf="@+id/register_password_input"
-        tools:layout_editor_absoluteX="41dp" />
+        android:elevation="8sp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="9dp"
+        app:boxCornerRadiusBottomStart="9dp"
+        app:boxCornerRadiusTopEnd="9dp"
+        app:boxCornerRadiusTopStart="9dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
+        app:layout_constraintStart_toStartOf="@+id/registerP1_title"
+        app:layout_constraintTop_toBottomOf="@+id/register_password_layout"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_confirm_input"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:background="@null"
+            android:fontFamily="@font/lexend"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:letterSpacing="-0.02"
+            android:padding="15sp"
+            android:textColor="#3A1133"
+            android:textColorHighlight="#C4B8C2"
+            android:textColorHint="#C4B8C2" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/register_confirm_heading"
@@ -32,36 +54,56 @@
         android:text="Set up a password"
         android:textColor="#3A1133"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/register_confirm_input"
-        app:layout_constraintStart_toStartOf="@+id/register_confirm_input" />
+        app:layout_constraintBottom_toTopOf="@+id/register_confirm_layout"
+        app:layout_constraintStart_toStartOf="@+id/register_confirm_layout" />
 
     <TextView
         android:id="@+id/register_description_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/lexend_medium"
         android:letterSpacing="-0.02"
         android:text="What are you like?"
         android:textColor="#3A1133"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/register_description_input"
-        app:layout_constraintStart_toStartOf="@+id/register_description_input" />
+        app:layout_constraintBottom_toTopOf="@+id/register_description_layout"
+        app:layout_constraintStart_toStartOf="@+id/register_description_layout" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/register_description_input"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/register_description_layout"
         android:layout_width="323dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="40dp"
-        android:background="@android:color/transparent"
-        android:hint="I like long walks on the beach..."
-        android:letterSpacing="-0.02"
-        android:padding="15sp"
-        android:textColor="#3A1133"
-        android:textColorHighlight="#C4B8C2"
-        android:textColorHint="#C4B8C2"
-        app:layout_constraintTop_toBottomOf="@+id/register_confirm_input"
-        tools:layout_editor_absoluteX="42dp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:elevation="8sp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="9dp"
+        app:boxCornerRadiusBottomStart="9dp"
+        app:boxCornerRadiusTopEnd="9dp"
+        app:boxCornerRadiusTopStart="9dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/registerP1_title"
+        app:layout_constraintTop_toBottomOf="@+id/register_confirm_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_description_input"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@null"
+            android:fontFamily="@font/lexend"
+            android:gravity="top"
+            android:hint="I like long walks on the beach..."
+            android:letterSpacing="-0.02"
+            android:padding="15sp"
+            android:textColor="#3A1133"
+            android:textColorHighlight="#C4B8C2"
+            android:textColorHint="#C4B8C2" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/register_password_heading"
@@ -72,23 +114,42 @@
         android:text="Set up a password"
         android:textColor="#3A1133"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/register_password_input"
-        app:layout_constraintStart_toStartOf="@+id/register_password_input" />
+        app:layout_constraintBottom_toTopOf="@+id/register_password_layout"
+        app:layout_constraintStart_toStartOf="@+id/register_password_layout" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/register_password_input"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/register_password_layout"
         android:layout_width="320dp"
-        android:layout_height="57dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@android:color/transparent"
-        android:hint="8 characters minimum"
-        android:letterSpacing="-0.02"
-        android:padding="15sp"
-        android:textColor="#3A1133"
-        android:textColorHighlight="#C4B8C2"
-        android:textColorHint="#C4B8C2"
-        app:layout_constraintTop_toBottomOf="@+id/register_username_input"
-        tools:layout_editor_absoluteX="41dp" />
+        android:elevation="8sp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="9dp"
+        app:boxCornerRadiusBottomStart="9dp"
+        app:boxCornerRadiusTopEnd="9dp"
+        app:boxCornerRadiusTopStart="9dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
+        app:layout_constraintStart_toStartOf="@+id/registerP1_title"
+        app:layout_constraintTop_toBottomOf="@+id/register_username_layout"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:background="@null"
+            android:fontFamily="@font/lexend"
+            android:hint="8 characters minimum"
+            android:inputType="textPassword"
+            android:letterSpacing="-0.02"
+            android:padding="15sp"
+            android:textColor="#3A1133"
+            android:textColorHint="#C4B8C2" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/registerP1_title"
@@ -97,6 +158,7 @@
         android:fontFamily="@font/lexend_medium"
         android:letterSpacing="-0.02"
         android:text="Register Account"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,37 +187,55 @@
         android:text="What's your name?"
         android:textColor="#3A1133"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/register_username_input"
-        app:layout_constraintStart_toStartOf="@+id/register_username_input" />
+        app:layout_constraintBottom_toTopOf="@+id/register_username_layout"
+        app:layout_constraintStart_toStartOf="@+id/register_username_layout" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/register_username_input"
-        android:layout_width="320dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="52dp"
-        android:background="@android:color/transparent"
-        android:hint="Juan Dela Cruz"
-        android:letterSpacing="-0.02"
-        android:padding="15sp"
-        android:textColor="#3A1133"
-        android:textColorHighlight="#C4B8C2"
-        android:textColorHint="#C4B8C2"
-        app:layout_constraintTop_toBottomOf="@+id/registerP1_title"
-        tools:layout_editor_absoluteX="41dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/register_username_layout"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:elevation="8sp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxBackgroundMode="filled"
+        app:boxCornerRadiusBottomEnd="9dp"
+        app:boxCornerRadiusBottomStart="9dp"
+        app:boxCornerRadiusTopEnd="9dp"
+        app:boxCornerRadiusTopStart="9dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/registerP1_title"
+        app:layout_constraintTop_toBottomOf="@+id/registerP1_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_username_input"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:background="@null"
+            android:fontFamily="@font/lexend"
+            android:hint="Juan Dela Cruz"
+            android:letterSpacing="-0.02"
+            android:padding="15sp"
+            android:textColor="#3A1133"
+            android:textColorHighlight="#C4B8C2"
+            android:textColorHint="#C4B8C2" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/register_next_button"
         android:layout_width="205dp"
         android:layout_height="52dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#FA5213"
         android:fontFamily="@font/lexend"
         android:letterSpacing="-0.02"
         android:padding="10sp"
         android:text="Next"
-        app:layout_constraintEnd_toEndOf="@+id/register_description_input"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="@+id/register_description_input"
-        app:layout_constraintTop_toBottomOf="@+id/register_description_input" />
+        app:layout_constraintEnd_toEndOf="@+id/register_description_layout"
+        app:layout_constraintStart_toStartOf="@+id/register_description_layout"
+        app:layout_constraintTop_toBottomOf="@+id/register_description_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

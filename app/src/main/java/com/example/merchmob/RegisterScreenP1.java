@@ -115,6 +115,7 @@ public class RegisterScreenP1 extends AppCompatActivity {
         realm.beginTransaction();
         realm.copyToRealmOrUpdate(u);
         realm.commitTransaction();
+        Toast.makeText(this, "Registration Successful", Toast.LENGTH_SHORT).show();
 
         goNext(u.getUserUUID());
     }
