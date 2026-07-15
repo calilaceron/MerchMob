@@ -30,28 +30,8 @@
         app:layout_constraintTop_toBottomOf="@+id/register_password_input" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/register_description_input"
-        android:layout_width="314dp"
-        android:layout_height="106dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/edittext_background"
-        android:elevation="2dp"
-        android:fontFamily="@font/lexend"
-        android:gravity="top"
-        android:hint="I like long walks on the beach..."
-        android:letterSpacing="-0.02"
-        android:padding="15sp"
-        android:textColor="#3A1133"
-        android:textColorHighlight="#C4B8C2"
-        android:textColorHint="#C4B8C2"
-        app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/registerP1_title"
-        app:layout_constraintTop_toBottomOf="@+id/register_confirm_input" />
-
-    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/register_password_input"
-        android:layout_width="317dp"
+        android:layout_width="318dp"
         android:layout_height="58dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/edittext_background"
@@ -64,15 +44,35 @@
         android:textColor="#3A1133"
         android:textColorHint="#C4B8C2"
         app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="@+id/registerP1_title"
         app:layout_constraintTop_toBottomOf="@+id/register_username_input" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/register_description_input"
+        android:layout_width="318dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="2dp"
+        android:fontFamily="@font/lexend"
+        android:gravity="top"
+        android:hint="I like long walks on the beach..."
+        android:letterSpacing="-0.02"
+        android:padding="15sp"
+        android:textColor="#3A1133"
+        android:textColorHighlight="#C4B8C2"
+        android:textColorHint="#C4B8C2"
+        app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/registerP1_title"
+        app:layout_constraintTop_toBottomOf="@+id/register_confirm_input" />
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/register_username_input"
-        android:layout_width="316dp"
+        android:layout_width="318dp"
         android:layout_height="51dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/edittext_background"
         android:elevation="2dp"
         android:fontFamily="@font/lexend"
@@ -83,8 +83,9 @@
         android:textColorHighlight="#C4B8C2"
         android:textColorHint="#C4B8C2"
         app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@+id/registerP1_title"
-        app:layout_constraintTop_toBottomOf="@+id/registerP1_title" />
+        app:layout_constraintTop_toBottomOf="@+id/register_add_userphoto" />
 
     <TextView
         android:id="@+id/register_confirm_heading"
@@ -102,7 +103,6 @@
         android:id="@+id/register_description_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:fontFamily="@font/lexend_medium"
         android:letterSpacing="-0.02"
         android:text="What are you like?"
@@ -134,7 +134,6 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.061" />
@@ -144,11 +143,12 @@
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:layout_marginEnd="32dp"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="@+id/registerP1_title"
         app:layout_constraintEnd_toStartOf="@+id/registerP1_title"
         app:layout_constraintTop_toTopOf="@+id/registerP1_title"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/back_chevron" />
+        app:srcCompat="@drawable/back_icon" />
 
     <TextView
         android:id="@+id/register_username_heading"
@@ -166,7 +166,7 @@
         android:id="@+id/register_next_button"
         android:layout_width="205dp"
         android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#FA5213"
         android:fontFamily="@font/lexend"
         android:letterSpacing="-0.02"
@@ -174,8 +174,22 @@
         android:text="Next"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="@+id/registerP1_title"
         app:layout_constraintTop_toBottomOf="@+id/register_description_input" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/register_add_userphoto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="2dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/registerP1_title"
+        app:layout_constraintStart_toStartOf="@+id/registerP1_title"
+        app:layout_constraintTop_toBottomOf="@+id/registerP1_title"
+        app:shapeAppearanceOverlay="@style/RoundedCorners"
+        app:srcCompat="@drawable/user_add_photo_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
