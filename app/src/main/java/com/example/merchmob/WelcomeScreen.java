@@ -69,7 +69,7 @@ public class WelcomeScreen extends AppCompatActivity {
     }
 
     private void goAdmin() {
-//        Intent intent = new Intent(WelcomeScreen.this, AdminScreen.class);
-//        startActivity(intent);
+        Intent intent = new Intent(WelcomeScreen.this, Admin.class);
+        startActivity(intent);
     }
 }

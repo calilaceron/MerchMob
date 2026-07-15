@@ -15,6 +15,9 @@ public class User extends RealmObject {
     String userDescription;
     String role;
     String userImageName;
+
+    int productsBought;
+    int productsSold;
     RealmList<CartItem> userCart;
 
     public String getUserUUID() {
@@ -72,6 +75,21 @@ public class User extends RealmObject {
     public void setUserCart(RealmList<CartItem> userCart) {
         this.userCart = userCart;
     }
+    public int getProductsBought() {
+        return productsBought;
+    }
+
+    public void setProductsBought(int productsBought) {
+        this.productsBought = productsBought;
+    }
+
+    public int getProductsSold() {
+        return productsSold;
+    }
+
+    public void setProductsSold(int productsSold) {
+        this.productsSold = productsSold;
+    }
 
     @Override
     public String toString() {
@@ -82,6 +100,8 @@ public class User extends RealmObject {
                 ", userDescription='" + userDescription + '\'' +
                 ", role='" + role + '\'' +
                 ", userImageName='" + userImageName + '\'' +
+                ", productsBought=" + productsBought +
+                ", productsSold=" + productsSold +
                 ", userCart=" + userCart +
                 '}';
     }

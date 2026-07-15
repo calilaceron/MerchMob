@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/user_adapter_background"
+    android:elevation="8dp"
+    android:paddingHorizontal="30dp"
+    android:paddingVertical="20dp"
+    tools:context=".UserAdapter">
+
+    <TextView
+        android:id="@+id/uaProductInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.02"
+        android:text="6 Products"
+        android:textAlignment="textStart"
+        android:textColor="#B0A0AD"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/uaJoinDate"
+        app:layout_constraintEnd_toEndOf="@+id/uaRole"
+        app:layout_constraintTop_toBottomOf="@+id/uaRole" />
+
+    <TextView
+        android:id="@+id/uaRole"
+        android:layout_width="43dp"
+        android:layout_height="21dp"
+        android:background="@drawable/admin_seller_background"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.022"
+        android:paddingTop="2dp"
+        android:text="Seller"
+        android:textAlignment="center"
+        android:textColor="#FA5213"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/uaUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/uaUsername" />
+
+    <TextView
+        android:id="@+id/uaJoinDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.02"
+        android:text="Joined Jan 2024"
+        android:textAlignment="textStart"
+        android:textColor="#9C8899"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/uaUsername"
+        app:layout_constraintTop_toBottomOf="@+id/uaUsername" />
+
+    <TextView
+        android:id="@+id/uaUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Annica Bloom"
+        android:textAlignment="textStart"
+        android:textColor="#3A1133"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/uaInitial"
+        app:layout_constraintTop_toTopOf="@+id/uaInitial" />
+
+    <TextView
+        android:id="@+id/uaInitial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/admin_user_icon_bg"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:paddingTop="7dp"
+        android:text="A"
+        android:textAlignment="center"
+        android:textColor="#3A1133"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
