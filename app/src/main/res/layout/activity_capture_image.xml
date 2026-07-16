@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+
+
+    android:background="#f9f9f9">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/letterSp"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:fontFamily="@font/lexend_medium"
+            android:gravity="center_horizontal"
+            android:letterSpacing="-0.02"
+            android:text="Image Capture"
+            android:textColor="#3A1133"
+            android:textSize="36dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:elevation="8dp"
+                android:padding="5dp">
+
+                <com.theartofdev.edmodo.cropper.CropImageView
+                    android:id="@+id/cropImageView"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+
+                    />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="72dp"
+                android:layout_height="192dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ImageButton
+                    android:id="@+id/capture"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:backgroundTint="#391231"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:tooltipText="Open Camera" />
+
+                <ImageButton
+                    android:id="@+id/crop"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:backgroundTint="#391231"
+                    android:src="@android:drawable/ic_menu_crop"
+                    android:tooltipText="Crop Image" />
+
+                <ImageButton
+                    android:id="@+id/rotate"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edittext_background"
+                    android:backgroundTint="#391231"
+                    android:src="@android:drawable/ic_menu_rotate"
+                    android:tooltipText="Rotate Image" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp">
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/lexend_regular"
+                android:letterSpacing="-0.02"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                app:backgroundTint="@null" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
