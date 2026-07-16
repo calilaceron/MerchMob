@@ -1,4 +1,9 @@
 <resources>
+
+    <!-- THIS MUST MATCH YOUR APP PACKAGE NAME OR ELSE CAMERA WILL-->
+    <!-- INDICATE A CONFLICTING PROVIDER -->
+    <string name="fileAuthority">com.example.merchmob</string>
+
     <string name="app_name">MerchMob</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

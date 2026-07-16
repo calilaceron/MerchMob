@@ -3,6 +3,8 @@ package com.example.merchmob;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +16,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
+
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmRecyclerViewAdapter;
 
@@ -22,16 +30,16 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User,UserAdapter.ViewH
     Admin activity;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView uaInitial;
         TextView uaUsername;
         TextView uaJoinDate;
         TextView uaRole;
         TextView uaProductInfo;
+        ImageButton uaImageButton;
 
         public ViewHolder(View userView){
             super(userView);
 
-            uaInitial = userView.findViewById(R.id.uaInitial);
+            uaImageButton = userView.findViewById(R.id.uaImageButton);
             uaUsername = userView.findViewById(R.id.uaUsername);
             uaJoinDate = userView.findViewById(R.id.uaJoinDate);
             uaRole = userView.findViewById(R.id.uaRole);
@@ -56,27 +64,34 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User,UserAdapter.ViewH
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         User user = getItem(position);
 
-        if (user != null) {
-            holder.uaInitial.setText(String.valueOf(user.getUsername().charAt(0)));
-            holder.uaUsername.setText(user.getUsername());
-            holder.uaRole.setText(user.getRole());
-            if(user.getRole().equals("Seller")){
-                holder.uaProductInfo.setText(user.getProductsSold() + " Products");
-            }else{
-                holder.uaProductInfo.setText(user.getProductsBought() + " Products");
-            }
+        // USER AVATAR RENDERING STARTS HERE
+        File getImageDir =activity.getExternalCacheDir();
+
+        File userAvatar;
+        assert user != null;
+        if(user.getUserImageName()!=null){
+            userAvatar = new File(getImageDir, user.getUserImageName());
+        } else {
+            userAvatar = null;
+        }
+
+        if(userAvatar!=null && userAvatar.exists()){
+            Picasso.get()
+                    .load(userAvatar)
+                    .networkPolicy(NetworkPolicy.NO_CACHE)
+                    .memoryPolicy(MemoryPolicy.NO_CACHE)
+                    .into(holder.uaImageButton);
+        } else {
+            holder.uaImageButton.setImageResource(R.drawable.admin_user_icon);
+        }
+        // USER AVATAR RENDERING ENDS HERE
+
+        holder.uaUsername.setText(user.getUsername());
+        holder.uaRole.setText(user.getRole());
+        if(user.getRole().equals("Seller")){
+            holder.uaProductInfo.setText(user.getProductsSold() + " Products");
+        }else{
+            holder.uaProductInfo.setText(user.getProductsBought() + " Products");
         }
     }
-
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-//        setContentView(R.layout.activity_user_adapter);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
-//    }
 }

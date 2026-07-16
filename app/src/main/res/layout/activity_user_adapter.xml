@@ -68,22 +68,17 @@
         android:textAlignment="textStart"
         android:textColor="#3A1133"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/uaInitial"
-        app:layout_constraintTop_toTopOf="@+id/uaInitial" />
+        app:layout_constraintStart_toEndOf="@+id/uaImageButton"
+        app:layout_constraintTop_toTopOf="@+id/uaImageButton" />
 
-    <TextView
-        android:id="@+id/uaInitial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/admin_user_icon_bg"
-        android:fontFamily="@font/lexend_medium"
-        android:letterSpacing="-0.02"
-        android:paddingTop="7dp"
-        android:text="A"
-        android:textAlignment="center"
-        android:textColor="#3A1133"
-        android:textSize="18sp"
+    <ImageButton
+        android:id="@+id/uaImageButton"
+        android:layout_width="58dp"
+        android:layout_height="46dp"
+        android:background="null"
+        android:src="@drawable/admin_user_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

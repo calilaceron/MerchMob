@@ -2,6 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- NEW: APPLICATION PERMISSIONS -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- NEEDED TO ACCESS CAMERA and GALLERY FOR ANDROID 11+ -->
+    <!-- https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/64204646#64204646        -->
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -12,6 +32,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MerchMob">
+
+        <!-- NEW: the file authority is found in the res/values/strings.xml
+        this MUST match your package name in the <manifest> tag-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/fileAuthority"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- there must be a res/xml/file_provider_path.xml or this will fail -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_path" />
+        </provider>
+        <activity android:name=".ImageActivity"/>
+
         <activity
             android:name=".WelcomeScreen"
             android:exported="true"
@@ -26,7 +62,6 @@
             android:name=".Login"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name=".RegisterScreenP1"
             android:exported="false"
@@ -45,6 +80,10 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".EditAccount"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".UserDetail"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
