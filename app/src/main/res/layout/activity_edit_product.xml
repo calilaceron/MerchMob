@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".EditProduct">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/epSaveButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/lexend_regular"
+        android:text="Save Edits"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/epImageView"
+        app:layout_constraintStart_toStartOf="@+id/epImageView"
+        app:layout_constraintTop_toBottomOf="@+id/epDescription" />
+
+    <EditText
+        android:id="@+id/epDescription"
+        android:layout_width="268dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="8dp"
+        android:ems="10"
+        android:fontFamily="@font/lexend_light"
+        android:hint="Description"
+        android:inputType="text"
+        android:padding="15dp"
+        android:textColorHint="#C4B8C2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Description"
+        android:textAlignment="textStart"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/epStock"
+        app:layout_constraintTop_toBottomOf="@+id/epStock" />
+
+    <EditText
+        android:id="@+id/epStock"
+        android:layout_width="268dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="8dp"
+        android:ems="10"
+        android:fontFamily="@font/lexend_light"
+        android:hint="Stock"
+        android:inputType="number"
+        android:padding="15dp"
+        android:textColorHint="#C4B8C2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Stock"
+        android:textAlignment="textStart"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/epPrice"
+        app:layout_constraintTop_toBottomOf="@+id/epPrice" />
+
+    <EditText
+        android:id="@+id/epPrice"
+        android:layout_width="268dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="8dp"
+        android:ems="10"
+        android:fontFamily="@font/lexend_light"
+        android:hint="Price (PHP)"
+        android:inputType="number"
+        android:padding="15dp"
+        android:textColorHint="#C4B8C2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Price (PHP)"
+        android:textAlignment="textStart"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/epProductName"
+        app:layout_constraintTop_toBottomOf="@+id/epProductName" />
+
+    <EditText
+        android:id="@+id/epProductName"
+        android:layout_width="268dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="8dp"
+        android:ems="10"
+        android:fontFamily="@font/lexend_light"
+        android:hint="Product Name"
+        android:inputType="text"
+        android:padding="15dp"
+        android:textColorHint="#C4B8C2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Product Name"
+        android:textAlignment="textStart"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/epImageView"
+        app:layout_constraintTop_toBottomOf="@+id/epImageView" />
+
+    <ImageView
+        android:id="@+id/epImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:srcCompat="@drawable/change_product_photo" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Edit Product"
+        android:textAlignment="center"
+        android:textColor="#755870"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/epBackButton"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="32dp"
+        android:background="#F9F9F9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
