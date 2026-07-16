@@ -62,7 +62,6 @@ public class ImageActivity extends AppCompatActivity
     private Button cancel;
 
 
-
     public void init()
     {
         // this file authority is in the res/values/strings.xml

@@ -1,5 +1,7 @@
 package com.example.merchmob;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +46,7 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User,UserAdapter.ViewH
             uaJoinDate = userView.findViewById(R.id.uaJoinDate);
             uaRole = userView.findViewById(R.id.uaRole);
             uaProductInfo = userView.findViewById(R.id.uaProductInfo);
+
         }
     }
 
@@ -93,5 +96,18 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User,UserAdapter.ViewH
         }else{
             holder.uaProductInfo.setText(user.getProductsBought() + " Products");
         }
+
+        holder.uaImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences prefs = activity.getSharedPreferences("data", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("usernameToView", user.getUsername());
+                editor.apply();
+
+                Intent userDetail = new Intent(activity, UserDetail.class);
+                v.getContext().startActivity(userDetail);
+            }
+        });
     }
 }

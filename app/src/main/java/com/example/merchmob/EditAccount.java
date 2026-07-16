@@ -128,6 +128,8 @@ public class EditAccount extends AppCompatActivity {
         return savedImage;
     }
 
+    // CAMERA IMPLEMENTATION ENDS HERE
+
     private void refreshImageView(ImageView imageView, File savedImage) {
         // ADDS SAVED IMAGE TO THE IMAGEVIEW
         Picasso.get()
@@ -136,8 +138,6 @@ public class EditAccount extends AppCompatActivity {
                 .memoryPolicy(MemoryPolicy.NO_CACHE)
                 .into(imageView);
     }
-
-    // CAMERA IMPLEMENTATION ENDS HERE
 
     public void init(){
         editUsername = findViewById(R.id.editUsername);

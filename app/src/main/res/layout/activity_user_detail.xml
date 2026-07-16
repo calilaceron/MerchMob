@@ -5,6 +5,95 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F9F9F9"
     tools:context=".UserDetail">
 
+    <EditText
+        android:id="@+id/udDescription"
+        android:layout_width="284dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_background"
+        android:elevation="8dp"
+        android:ems="10"
+        android:fontFamily="@font/lexend_light"
+        android:gravity="start|top"
+        android:hint="Description"
+        android:inputType="textMultiLine"
+        android:padding="15dp"
+        android:textColor="#8E1A7A"
+        android:textColorHint="#C4B8C2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Description"
+        android:textAlignment="textStart"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/udBackButton"
+        app:layout_constraintTop_toBottomOf="@+id/udRole" />
+
+    <TextView
+        android:id="@+id/udRole"
+        android:layout_width="87dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/admin_seller_background"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.022"
+        android:padding="10dp"
+        android:text="Seller"
+        android:textAlignment="center"
+        android:textColor="#FA5213"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/udUsername"
+        app:layout_constraintStart_toStartOf="@+id/udUsername"
+        app:layout_constraintTop_toBottomOf="@+id/udUsername" />
+
+    <TextView
+        android:id="@+id/udUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="#3A1133"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/udImageView"
+        app:layout_constraintStart_toStartOf="@+id/udImageView"
+        app:layout_constraintTop_toBottomOf="@+id/udImageView" />
+
+    <ImageView
+        android:id="@+id/udImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/udBackButton"
+        app:srcCompat="@drawable/detail_user_icon" />
+
+    <ImageButton
+        android:id="@+id/udBackButton"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="32dp"
+        android:background="#F9F9F9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
