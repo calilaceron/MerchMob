@@ -11,6 +11,10 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!-- THIS MUST MATCH YOUR APP PACKAGE NAME OR ELSE CAMERA WILL-->
+    <!-- INDICATE A CONFLICTING PROVIDER -->
+    <string name="fileAuthority">com.example.merchmob.fileprovider</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

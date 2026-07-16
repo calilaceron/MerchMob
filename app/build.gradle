@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.merchmob"
-        minSdk 26
+        minSdk 24
         targetSdk 29
         versionCode 1
         versionName "1.0"
@@ -36,17 +36,17 @@ android {
 }
 
 dependencies {
-    // CAMERA DEPENDENCIES
+
+    // CAMERA
     implementation files('libs/Android-Image-Cropper-release.aar')
     implementation "androidx.exifinterface:exifinterface:1.4.2"
 
-    // KARUMI DEPENDENCES
     implementation 'com.squareup.picasso:picasso:2.71828'
+
 
     // PERMISSIONS
     implementation 'com.karumi:dexter:6.2.3'
-
-    implementation libs.recyclerview
+    implementation files('libs/realmadapter4.0.0.jar')
     implementation files('libs/realmadapter4.0.0.jar')
 
     implementation libs.activity.ktx

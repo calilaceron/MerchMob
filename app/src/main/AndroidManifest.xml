@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- NEW: APPLICATION PERMISSIONS -->
+    <!-- NEW: application permissions -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -21,7 +20,6 @@
             <action android:name="android.intent.action.GET_CONTENT" />
         </intent>
     </queries>
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -32,22 +30,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MerchMob">
-
-        <!-- NEW: the file authority is found in the res/values/strings.xml
-        this MUST match your package name in the <manifest> tag-->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="@string/fileAuthority"
-            android:exported="false"
-            android:grantUriPermissions="true">
-
-            <!-- there must be a res/xml/file_provider_path.xml or this will fail -->
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_provider_path" />
-        </provider>
-        <activity android:name=".ImageActivity"/>
-
         <activity
             android:name=".WelcomeScreen"
             android:exported="true"
@@ -62,6 +44,7 @@
             android:name=".Login"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".RegisterScreenP1"
             android:exported="false"
@@ -83,9 +66,24 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".UserDetail"
+            android:name=".ImageActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <!--
+NEW: the file authority is found in the res/values/strings.xml
+this MUST match your package name in the <manifest> tag
+-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/fileAuthority"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- there must be a res/xml/file_provider_path.xml or this will fail -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_path" />
+        </provider>
     </application>
 
 </manifest>
