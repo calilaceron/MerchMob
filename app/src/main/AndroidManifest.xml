@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- NEW: application permissions -->
     <uses-feature
         android:name="android.hardware.camera"
@@ -11,7 +12,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <!-- NEEDED TO ACCESS CAMERA and GALLERY FOR ANDROID 11+ -->
-    <!-- https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/64204646#64204646        -->
+    <!-- https://stackoverflow.com/questions/62535856/intent-resolveactivity-returns-null-in-api-30/64204646#64204646 -->
     <queries>
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />
@@ -20,6 +21,7 @@
             <action android:name="android.intent.action.GET_CONTENT" />
         </intent>
     </queries>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -44,7 +46,6 @@
             android:name=".Login"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name=".RegisterScreenP1"
             android:exported="false"
@@ -57,10 +58,10 @@
             android:name=".Admin"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".UserAdapter"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+<!--        <activity-->
+<!--            android:name=".UserAdapter"-->
+<!--            android:exported="false"-->
+<!--            android:windowSoftInputMode="adjustResize" />-->
         <activity
             android:name=".EditAccount"
             android:exported="false"
@@ -72,7 +73,7 @@
         <!--
 NEW: the file authority is found in the res/values/strings.xml
 this MUST match your package name in the <manifest> tag
--->
+        -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="@string/fileAuthority"
@@ -84,6 +85,11 @@ this MUST match your package name in the <manifest> tag
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_path" />
         </provider>
+
+        <activity
+            android:name=".EditProduct"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
