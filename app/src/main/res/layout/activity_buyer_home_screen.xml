@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".BuyerHomeScreen">
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/lexend_regular"
+        android:letterSpacing="-0.02"
+        android:text="Shop all things new"
+        android:textColor="#FA5213"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/bwsUsername"
+        app:layout_constraintTop_toBottomOf="@+id/bwsUsername" />
+
+    <TextView
+        android:id="@+id/bwsUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Calil"
+        android:textColor="#3A1133"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Welcome back,"
+        android:textColor="#3A1133"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintStart_toEndOf="@+id/textView20"
+        app:layout_constraintTop_toTopOf="@+id/textView20"
+        app:srcCompat="@drawable/right_arrow_icon" />
+
+    <ImageView
+        android:id="@+id/bwsAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView18"
+        app:srcCompat="@drawable/buyer_account_icon" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="410dp"
+        android:layout_height="54dp"
+        android:background="@drawable/buyer_home_footer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/bwsCartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-25dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/buyer_cart_icon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bwsRecyclerView"
+        android:layout_width="354dp"
+        android:layout_height="555dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+</androidx.constraintlayout.widget.ConstraintLayout>

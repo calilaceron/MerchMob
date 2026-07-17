@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:elevation="16dp"
+    android:padding="15dp">
+
+
+    <TextView
+        android:id="@+id/bpaProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Product Name"
+        android:textColor="#3A1133"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/bpaImageView"
+        app:layout_constraintTop_toBottomOf="@+id/bpaImageView" />
+
+    <TextView
+        android:id="@+id/bpaProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.02"
+        android:text="PHP 20"
+        android:textColor="#755870"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/bpaProductName"
+        app:layout_constraintTop_toBottomOf="@+id/bpaProductName" />
+
+    <ImageView
+        android:id="@+id/bpaImageView"
+        android:layout_width="135dp"
+        android:layout_height="142dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/button_background" />
+
+    <ImageButton
+        android:id="@+id/bpaAddToCartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="null"
+        app:layout_constraintEnd_toEndOf="@+id/bpaImageView"
+        app:layout_constraintStart_toStartOf="@+id/bpaImageView"
+        app:layout_constraintTop_toBottomOf="@+id/bpaProductPrice"
+        app:srcCompat="@drawable/add_to_cart_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

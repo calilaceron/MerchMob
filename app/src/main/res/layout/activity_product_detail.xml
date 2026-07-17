@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ProductDetail">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/pdAddToCart"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="192dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/lexend_regular"
+        android:text="Add to Cart"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/pdImageView"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/pdImageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/pdProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Product Name"
+        android:textAlignment="center"
+        android:textColor="#3A1133"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/pdImageView"
+        app:layout_constraintTop_toBottomOf="@+id/pdImageView" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Quantity"
+        android:textAlignment="center"
+        android:textColor="#3A1133"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/pdStockStatus"
+        app:layout_constraintTop_toBottomOf="@+id/pdStockStatus" />
+
+    <TextView
+        android:id="@+id/pdQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="#3A1133"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pdPlusButton"
+        app:layout_constraintEnd_toStartOf="@+id/pdPlusButton"
+        app:layout_constraintTop_toTopOf="@+id/pdPlusButton" />
+
+    <TextView
+        android:id="@+id/prPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="PHP 20"
+        android:textAlignment="center"
+        android:textColor="#FA5213"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pdProductName"
+        app:layout_constraintEnd_toEndOf="@+id/pdImageView"
+        app:layout_constraintTop_toTopOf="@+id/pdProductName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/pdSellerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.02"
+        android:text="Seller Name"
+        android:textAlignment="center"
+        android:textColor="#866E82"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/pdProductName"
+        app:layout_constraintTop_toBottomOf="@+id/pdProductName" />
+
+    <TextView
+        android:id="@+id/pdStockStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/pd_stock_bg"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.02"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:text="In Stock"
+        android:textAlignment="center"
+        android:textColor="#3A1133"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/pdProductName"
+        app:layout_constraintTop_toBottomOf="@+id/pdDescription" />
+
+    <TextView
+        android:id="@+id/pdDescription"
+        android:layout_width="305dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lexend_light"
+        android:letterSpacing="-0.02"
+        android:text="A soft everyday crewneck tee in heavyweight cotton. Perfect for layering or wearing on its own. Available in multiple colorways."
+        android:textAlignment="viewStart"
+        android:textColor="#866E82"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/pdProductName"
+        app:layout_constraintTop_toBottomOf="@+id/pdSellerName" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Product Detail"
+        android:textAlignment="center"
+        android:textColor="#755870"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/pdBackButton"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="32dp"
+        android:background="#F9F9F9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back_icon"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/pdImageView"
+        android:layout_width="324.01dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19"
+        app:srcCompat="@drawable/product_detail_img_bg" />
+
+    <ImageButton
+        android:id="@+id/pdMinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:background="null"
+        app:layout_constraintBottom_toBottomOf="@+id/pdQuantity"
+        app:layout_constraintEnd_toStartOf="@+id/pdQuantity"
+        app:layout_constraintTop_toTopOf="@+id/pdQuantity"
+        app:srcCompat="@drawable/pd_minus_icon" />
+
+    <ImageButton
+        android:id="@+id/pdPlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:background="null"
+        app:layout_constraintBottom_toBottomOf="@+id/textView28"
+        app:layout_constraintEnd_toEndOf="@+id/pdDescription"
+        app:layout_constraintTop_toTopOf="@+id/textView28"
+        app:srcCompat="@drawable/pd_plus_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

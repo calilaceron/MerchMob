@@ -39,7 +39,7 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User,UserAdapter.ViewH
         ImageButton uaImageButton;
 
         public ViewHolder(View userView){
-            super(userView);
+                super(userView);
 
             uaImageButton = userView.findViewById(R.id.uaImageButton);
             uaUsername = userView.findViewById(R.id.uaUsername);
