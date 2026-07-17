@@ -94,6 +94,10 @@ this MUST match your package name in the <manifest> tag
             android:name=".BuyerHomeScreen"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ProductDetail"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

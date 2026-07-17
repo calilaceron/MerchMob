@@ -1,5 +1,6 @@
 package com.example.merchmob;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,6 +84,15 @@ public class BuyerProductsAdapter extends RealmRecyclerViewAdapter<Product, Buye
 
         holder.bpaProductName.setText(product.getItemName());
         holder.bpaProductPrice.setText("PHP " + product.getPrice());
+
+        holder.bpaImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent productDetail = new Intent(activity, ProductDetail.class);
+                productDetail.putExtra("productUUID", product.getProductUUID());
+                activity.startActivity(productDetail);
+            }
+        });
 
         holder.bpaAddToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
