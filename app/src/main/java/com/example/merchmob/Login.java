@@ -84,8 +84,8 @@ public class Login extends AppCompatActivity {
                     editor.apply();
 
                     if (user.getRole().equals("buyer")){
-//                                Intent buyerScreen = new Intent(Login.this, {{ buyerScreen }}.class);
-//                                startActivity(buyerScreen);
+                                Intent buyerScreen = new Intent(Login.this, BuyerHomeScreen.class);
+                                startActivity(buyerScreen);
                     } else if (user.getRole().equals("seller")){
 //                                Intent sellerScreen = new Intent(Login.this, {{ sellerScreen }}.class);
 //                                startActivity(sellerScreen);

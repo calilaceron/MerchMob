@@ -58,10 +58,10 @@
             android:name=".Admin"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-<!--        <activity-->
-<!--            android:name=".UserAdapter"-->
-<!--            android:exported="false"-->
-<!--            android:windowSoftInputMode="adjustResize" />-->
+        <!-- <activity -->
+        <!-- android:name=".UserAdapter" -->
+        <!-- android:exported="false" -->
+        <!-- android:windowSoftInputMode="adjustResize" /> -->
         <activity
             android:name=".EditAccount"
             android:exported="false"
@@ -88,6 +88,10 @@ this MUST match your package name in the <manifest> tag
 
         <activity
             android:name=".EditProduct"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".BuyerHomeScreen"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>
