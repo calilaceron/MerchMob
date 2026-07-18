@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".EditProduct">
+    tools:context=".AddProduct">
 
     <TextView
         android:id="@+id/textView7"
@@ -15,7 +15,7 @@
         android:layout_marginTop="44dp"
         android:fontFamily="@font/lexend_medium"
         android:letterSpacing="-0.02"
-        android:text="Edit Product"
+        android:text="Add Product"
         android:textAlignment="center"
         android:textColor="#755870"
         android:textSize="24sp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/epBackButton"
+        android:id="@+id/apBackButton"
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_marginStart="20dp"
@@ -59,7 +59,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/RoundedCorners"
-                app:srcCompat="@drawable/change_product_photo" />
+                app:srcCompat="@drawable/add_product_photo" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -194,7 +194,7 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/lexend_regular"
-                android:text="Save Edits"
+                android:text="Add Product"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"

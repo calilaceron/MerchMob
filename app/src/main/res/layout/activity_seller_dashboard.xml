@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/pa_product_card"
+    android:id="@+id/bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f9f9f9"
@@ -46,20 +46,20 @@
         app:layout_constraintTop_toBottomOf="@+id/textView22">
 
         <LinearLayout
-            android:id="@+id/buyer_card"
+            android:id="@+id/seller_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edittext_background"
-            android:elevation="6dp"
+            android:elevation="2dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">
 
             <TextView
                 android:id="@+id/sd_stock_count"
-                android:layout_width="7dp"
+                android:layout_width="41dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lexend_medium"
                 android:letterSpacing="-0.02"
@@ -81,13 +81,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyer_card"
+            android:id="@+id/seller_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edittext_background"
-            android:elevation="6dp"
+            android:elevation="2dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">
@@ -114,13 +114,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyer_card"
+            android:id="@+id/seller_card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/edittext_background"
-            android:elevation="6dp"
+            android:elevation="2dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="24dp">

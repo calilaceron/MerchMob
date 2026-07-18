@@ -1,7 +1,9 @@
 package com.example.merchmob;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -34,7 +36,7 @@ public class SellerDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_seller_dashboard);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.pa_product_card), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.bg), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -59,6 +61,18 @@ public class SellerDashboard extends AppCompatActivity {
             setupRecyclerView();
             updateDashboardStats();
         }
+
+        sdAddButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAddProduct();
+            }
+        });
+    }
+
+    private void goAddProduct() {
+        Intent i = new Intent(SellerDashboard.this, AddProduct.class);
+        startActivity(i);
     }
 
     private void setupRecyclerView() {
