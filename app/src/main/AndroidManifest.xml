@@ -70,6 +70,10 @@
             android:name=".ImageActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".UserDetail"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <!--
 NEW: the file authority is found in the res/values/strings.xml
 this MUST match your package name in the <manifest> tag

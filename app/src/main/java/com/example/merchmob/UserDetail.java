@@ -88,7 +88,7 @@ public class UserDetail extends AppCompatActivity {
         prefs = getSharedPreferences("data", 0);
         realm = Realm.getDefaultInstance();
 
-        usernameToView =prefs.getString("userToView", "");
+        usernameToView =prefs.getString("usernameToView", "");
         User userToView= realm.where(User.class).equalTo("username", usernameToView).findFirst();
 
         if (userToView != null) {
