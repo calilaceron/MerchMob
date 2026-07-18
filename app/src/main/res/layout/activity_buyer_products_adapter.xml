@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF"
-    android:elevation="2dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/user_adapter_background"
+    android:elevation="4dp"
     android:padding="15dp">
 
 
@@ -38,6 +39,7 @@
         android:id="@+id/bpaImageView"
         android:layout_width="135dp"
         android:layout_height="142dp"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/button_background" />
@@ -48,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bpaImageView"
         app:layout_constraintStart_toStartOf="@+id/bpaImageView"
         app:layout_constraintTop_toBottomOf="@+id/bpaProductPrice"

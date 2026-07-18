@@ -102,7 +102,7 @@ public class SellerProductAdapter extends RealmRecyclerViewAdapter<Product, Sell
             @Override
             public void onClick(View v) {
                 SharedPreferences prefs = activity.getSharedPreferences("data", 0);
-                prefs.edit().putString("productToEdit", product.getItemName()).apply();
+                prefs.edit().putString("productToEditUUID", product.getProductUUID()).apply();
                 Intent editIntent = new Intent(activity, EditProduct.class);
                 activity.startActivity(editIntent);
             }

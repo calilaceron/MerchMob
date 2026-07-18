@@ -165,20 +165,23 @@ public class AddProduct extends AppCompatActivity {
         if(inputtedProductName.isEmpty() || inputtedPrice.isEmpty() || inputtedStock.isEmpty()){
             Toast.makeText(AddProduct.this, "Product name, price and stock must not be blank.", Toast.LENGTH_SHORT).show();
         } else {
-            long productSpecificCount = realm.where(Product.class).equalTo("itemName", inputtedProductName).count();
+            String loggedUsername = prefs.getString("loggedUsername", "");
+            User seller = realm.where(User.class).equalTo("username", loggedUsername).findFirst();
+
+            if (seller == null) {
+                Toast.makeText(this, "Seller not found. Please log in again.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            long productSpecificCount = realm.where(Product.class)
+                    .equalTo("itemName", inputtedProductName)
+                    .equalTo("sellerUUID", seller.getUserUUID())
+                    .count();
             boolean productExists = productSpecificCount > 0;
 
             if (productExists){
-                Toast.makeText(AddProduct.this, "The product name already exists.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddProduct.this, "You already have a product with this name.", Toast.LENGTH_SHORT).show();
             } else {
-                String loggedUsername = prefs.getString("loggedUsername", "");
-                User seller = realm.where(User.class).equalTo("username", loggedUsername).findFirst();
-                
-                if (seller == null) {
-                    Toast.makeText(this, "Seller not found. Please log in again.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 realm.executeTransaction(r -> {
                     Product newProduct = r.createObject(Product.class, java.util.UUID.randomUUID().toString());
                     newProduct.setItemName(inputtedProductName);
