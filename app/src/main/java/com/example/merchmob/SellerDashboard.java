@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +26,7 @@ public class SellerDashboard extends AppCompatActivity {
     TextView totalCount;
     RecyclerView sdRecyclerView;
     ImageButton sdAddButton;
+    ImageView sdAccountButton;
 
     Realm realm;
     SharedPreferences prefs;
@@ -51,6 +53,7 @@ public class SellerDashboard extends AppCompatActivity {
         totalCount = findViewById(R.id.sd_total_count);
         sdRecyclerView = findViewById(R.id.sd_recyclerview);
         sdAddButton = findViewById(R.id.sd_add_button);
+        sdAccountButton = findViewById(R.id.sdAccountButton);
 
         realm = Realm.getDefaultInstance();
         prefs = getSharedPreferences("data", 0);
@@ -68,6 +71,18 @@ public class SellerDashboard extends AppCompatActivity {
                 goAddProduct();
             }
         });
+
+        sdAccountButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goAccount();
+            }
+        });
+    }
+
+    private void goAccount() {
+        Intent i = new Intent(SellerDashboard.this, EditAccount.class);
+        startActivity(i);
     }
 
     private void goAddProduct() {

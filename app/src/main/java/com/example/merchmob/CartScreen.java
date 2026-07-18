@@ -79,9 +79,6 @@ public class CartScreen extends AppCompatActivity {
             for (CartItem item : currentUser.getUserCart()) {
                 Product product = r.where(Product.class).equalTo("productUUID", item.getProductUUID()).findFirst();
                 if (product != null) {
-                    // Update Stock
-                    int newStock = product.getStock() - item.getQuantitySelected();
-                    product.setStock(Math.max(0, newStock));
 
                     // Update Seller Stats
                     User seller = r.where(User.class).equalTo("userUUID", product.getSellerUUID()).findFirst();

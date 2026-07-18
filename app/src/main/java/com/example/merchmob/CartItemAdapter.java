@@ -82,6 +82,11 @@ public class CartItemAdapter extends RealmRecyclerViewAdapter<CartItem, CartItem
 
         holder.paDeleteButton.setOnClickListener(v -> {
             realm.executeTransaction(r -> {
+                // Restore Stock
+                Product p = r.where(Product.class).equalTo("productUUID", cartItem.getProductUUID()).findFirst();
+                if (p != null) {
+                    p.setStock(p.getStock() + cartItem.getQuantitySelected());
+                }
                 cartItem.deleteFromRealm();
             });
             Toast.makeText(activity, "Item removed from cart", Toast.LENGTH_SHORT).show();
