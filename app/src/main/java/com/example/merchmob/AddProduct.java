@@ -30,24 +30,23 @@ import java.io.IOException;
 
 import io.realm.Realm;
 
-public class EditProduct extends AppCompatActivity {
-    String productToEditName, productEditImageName;
-    EditText epProductName;
-    EditText epPrice;
-    EditText epStock;
-    EditText epDescription;
-    ImageButton epBackButton;
-    ImageView epImageView;
-    AppCompatButton epSaveButton;
+public class AddProduct extends AppCompatActivity {
+    String productImageName;
+    EditText apProductName;
+    EditText apPrice;
+    EditText apStock;
+    EditText apDescription;
+    ImageButton apBackButton;
+    ImageView apImageView;
+    AppCompatButton apAddButton;
     Realm realm;
     SharedPreferences prefs;
-    Product productToEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_edit_product);
+        setContentView(R.layout.activity_add_product);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.bg), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -57,22 +56,17 @@ public class EditProduct extends AppCompatActivity {
     }
 
     public void checkPermissions(){
-        // REQUEST PERMISSIONS for Android 6+
-        // THESE PERMISSIONS SHOULD MATCH THE ONES IN THE MANIFEST
         Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.CAMERA
-
                 )
                 .withListener(new BaseMultiplePermissionsListener() {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         if (report.areAllPermissionsGranted()) {
-                            // ALL PERMISSIONS ACCEPTED PROCEED
                             init();
                         } else {
-                            // NOTIFY ABOUT PERMISSIONS
                             toastRequirePermissions();
                         }
                     }
@@ -85,7 +79,6 @@ public class EditProduct extends AppCompatActivity {
         finish();
     }
 
-    // CAMERA IMPLEMENTATION STARTS HERE
     public static int REQUEST_CODE_IMAGE_SCREEN = 0;
 
     public void takePhoto() {
@@ -93,46 +86,35 @@ public class EditProduct extends AppCompatActivity {
         startActivityForResult(i, REQUEST_CODE_IMAGE_SCREEN);
     }
 
-    // SINCE WE USE startForResult(), CODE WILL TRIGGER THIS ONCE NEXT SCREEN CALLS finish()
     @Override
     public void onActivityResult(int requestCode, int responseCode, Intent data) {
         super.onActivityResult(requestCode, responseCode, data);
 
         if (requestCode==REQUEST_CODE_IMAGE_SCREEN) {
             if (responseCode==ImageActivity.RESULT_CODE_IMAGE_TAKEN){
-                // RECEIVE THE RAW JPEG FROM ImageActivity
                 byte[] jpeg = data.getByteArrayExtra("rawJpeg");
 
                 try {
-                    // SAVE RAW IMAGE TO FILE
-                    productEditImageName = System.currentTimeMillis()+".jpeg";
-                    File savedImage = saveFile(jpeg, productEditImageName);
-                    refreshImageView(epImageView, savedImage);
+                    productImageName = System.currentTimeMillis()+".jpeg";
+                    File savedImage = saveFile(jpeg, productImageName);
+                    refreshImageView(apImageView, savedImage);
                 } catch(Exception e) {
                     e.printStackTrace();
                 }
-
             }
         }
     }
 
     private File saveFile(byte[] jpeg, String name) throws IOException {
-        // ROOT DIRECTORY FOR IMAGES
         File getImageDir = getExternalCacheDir();
-
-        // SAMPLE
         File savedImage = new File(getImageDir, name);
-
         FileOutputStream fos = new FileOutputStream(savedImage);
         fos.write(jpeg);
         fos.close();
         return savedImage;
     }
 
-    // CAMERA IMPLEMENTATION ENDS HERE
-
     private void refreshImageView(ImageView imageView, File savedImage) {
-        // ADDS SAVED IMAGE TO THE IMAGEVIEW
         Picasso.get()
                 .load(savedImage)
                 .networkPolicy(NetworkPolicy.NO_CACHE)
@@ -141,52 +123,32 @@ public class EditProduct extends AppCompatActivity {
     }
 
     public void init(){
-        epProductName = findViewById(R.id.apProductName);
-        epPrice = findViewById(R.id.apPrice);
-        epStock = findViewById(R.id.apStock);
-        epDescription = findViewById(R.id.apDescription);
-        epBackButton = findViewById(R.id.epBackButton);
-        epSaveButton = findViewById(R.id.apAddButton);
-        epImageView = findViewById(R.id.apImageView);
+        apProductName = findViewById(R.id.apProductName);
+        apPrice = findViewById(R.id.apPrice);
+        apStock = findViewById(R.id.apStock);
+        apDescription = findViewById(R.id.apDescription);
+        apBackButton = findViewById(R.id.apBackButton);
+        apAddButton = findViewById(R.id.apAddButton);
+        apImageView = findViewById(R.id.apImageView);
 
         prefs = getSharedPreferences("data", 0);
         realm = Realm.getDefaultInstance();
 
-        productToEditName = prefs.getString("productToEdit", "");
-        productToEdit = realm.where(Product.class).equalTo("itemName", productToEditName).findFirst();
-
-        if (productToEdit != null){
-            epProductName.setText(productToEdit.getItemName());
-            epPrice.setText(String.valueOf(productToEdit.getPrice()));
-            epStock.setText(String.valueOf(productToEdit.getStock()));
-            epDescription.setText(productToEdit.getProductDescription());
-
-            File productImage;
-            if(productToEdit.getProductImageName()!=null){
-                productImage = new File(getExternalCacheDir(), productToEdit.getProductImageName());
-            } else {
-                productImage = null;
-            }
-            if(productImage!=null && productImage.exists()){
-                refreshImageView(epImageView, productImage);
-            }
-        }
-
-        epImageView.setOnClickListener(new View.OnClickListener() {
+        apImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 takePhoto();
             }
         });
 
-        epSaveButton.setOnClickListener(new View.OnClickListener() {
+        apAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editProductSaveClick();
+                addProductSaveClick();
             }
         });
 
-        epBackButton.setOnClickListener(new View.OnClickListener() {
+        apBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -194,39 +156,49 @@ public class EditProduct extends AppCompatActivity {
         });
     }
 
-    public void editProductSaveClick(){
-        String inputtedProductName = epProductName.getText().toString();
-        String inputtedPrice = epPrice.getText().toString();
-        String inputtedStock = epStock.getText().toString();
-        String inputtedDescription = epDescription.getText().toString();
+    public void addProductSaveClick(){
+        String inputtedProductName = apProductName.getText().toString();
+        String inputtedPrice = apPrice.getText().toString();
+        String inputtedStock = apStock.getText().toString();
+        String inputtedDescription = apDescription.getText().toString();
 
-        if(inputtedProductName.isEmpty()){
-            Toast.makeText(EditProduct.this, "The product name field must not be blank.", Toast.LENGTH_SHORT).show();
+        if(inputtedProductName.isEmpty() || inputtedPrice.isEmpty() || inputtedStock.isEmpty()){
+            Toast.makeText(AddProduct.this, "Product name, price and stock must not be blank.", Toast.LENGTH_SHORT).show();
         } else {
             long productSpecificCount = realm.where(Product.class).equalTo("itemName", inputtedProductName).count();
-            boolean productExists = productSpecificCount >1;
+            boolean productExists = productSpecificCount > 0;
 
             if (productExists){
-                Toast.makeText(EditProduct.this, "The product name already exists.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddProduct.this, "The product name already exists.", Toast.LENGTH_SHORT).show();
             } else {
-                realm.beginTransaction();
-                productToEdit.setItemName(inputtedProductName);
-                productToEdit.setPrice(Float.parseFloat(inputtedPrice));
-                productToEdit.setStock(Integer.parseInt(inputtedStock));
-                productToEdit.setProductDescription(inputtedDescription);
-                productToEdit.setProductImageName(productEditImageName);
-                realm.commitTransaction();
+                String loggedUsername = prefs.getString("loggedUsername", "");
+                User seller = realm.where(User.class).equalTo("username", loggedUsername).findFirst();
+                
+                if (seller == null) {
+                    Toast.makeText(this, "Seller not found. Please log in again.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                Toast.makeText(EditProduct.this, "The product has been updated.", Toast.LENGTH_SHORT).show();
+                realm.executeTransaction(r -> {
+                    Product newProduct = r.createObject(Product.class, java.util.UUID.randomUUID().toString());
+                    newProduct.setItemName(inputtedProductName);
+                    newProduct.setPrice(Float.parseFloat(inputtedPrice));
+                    newProduct.setStock(Integer.parseInt(inputtedStock));
+                    newProduct.setProductDescription(inputtedDescription);
+                    newProduct.setProductImageName(productImageName);
+                    newProduct.setSellerUUID(seller.getUserUUID());
+                });
+
+                Toast.makeText(AddProduct.this, "The product has been added.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }
     }
 
-    public void onDestroy() {
+    @Override
+    protected void onDestroy() {
         super.onDestroy();
-
-        if (!realm.isClosed()) {
+        if (realm != null && !realm.isClosed()) {
             realm.close();
         }
     }

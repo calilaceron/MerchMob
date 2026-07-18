@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.bg), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -83,12 +83,12 @@ public class Login extends AppCompatActivity {
                     editor.putString("loggedUsername", inputtedUsername);
                     editor.apply();
 
-                    if (user.getRole().equals("buyer")){
+                    if (user.getRole().equals("Buyer")){
                                 Intent buyerScreen = new Intent(Login.this, BuyerHomeScreen.class);
                                 startActivity(buyerScreen);
-                    } else if (user.getRole().equals("seller")){
-//                                Intent sellerScreen = new Intent(Login.this, {{ sellerScreen }}.class);
-//                                startActivity(sellerScreen);
+                    } else if (user.getRole().equals("Seller")){
+                                Intent sellerScreen = new Intent(Login.this, SellerDashboard.class);
+                                startActivity(sellerScreen);
                     }
                 } else {
                     Toast.makeText(Login.this, "The password is incorrect", Toast.LENGTH_SHORT).show();
