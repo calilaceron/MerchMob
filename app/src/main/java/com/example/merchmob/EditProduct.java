@@ -31,7 +31,7 @@ import java.io.IOException;
 import io.realm.Realm;
 
 public class EditProduct extends AppCompatActivity {
-    String productToEditName, productEditImageName;
+    String productEditImageName;
     EditText epProductName;
     EditText epPrice;
     EditText epStock;
@@ -152,10 +152,11 @@ public class EditProduct extends AppCompatActivity {
         prefs = getSharedPreferences("data", 0);
         realm = Realm.getDefaultInstance();
 
-        productToEditName = prefs.getString("productToEdit", "");
-        productToEdit = realm.where(Product.class).equalTo("itemName", productToEditName).findFirst();
+        String productToEditUUID = prefs.getString("productToEditUUID", "");
+        productToEdit = realm.where(Product.class).equalTo("productUUID", productToEditUUID).findFirst();
 
         if (productToEdit != null){
+            productEditImageName = productToEdit.getProductImageName();
             epProductName.setText(productToEdit.getItemName());
             epPrice.setText(String.valueOf(productToEdit.getPrice()));
             epStock.setText(String.valueOf(productToEdit.getStock()));
@@ -203,11 +204,15 @@ public class EditProduct extends AppCompatActivity {
         if(inputtedProductName.isEmpty()){
             Toast.makeText(EditProduct.this, "The product name field must not be blank.", Toast.LENGTH_SHORT).show();
         } else {
-            long productSpecificCount = realm.where(Product.class).equalTo("itemName", inputtedProductName).count();
-            boolean productExists = productSpecificCount >1;
+            long productSpecificCount = realm.where(Product.class)
+                    .equalTo("itemName", inputtedProductName)
+                    .equalTo("sellerUUID", productToEdit.getSellerUUID())
+                    .notEqualTo("productUUID", productToEdit.getProductUUID())
+                    .count();
+            boolean productExists = productSpecificCount > 0;
 
             if (productExists){
-                Toast.makeText(EditProduct.this, "The product name already exists.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EditProduct.this, "You already have another product with this name.", Toast.LENGTH_SHORT).show();
             } else {
                 realm.beginTransaction();
                 productToEdit.setItemName(inputtedProductName);

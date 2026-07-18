@@ -54,7 +54,7 @@ public class SellerAdapter extends RealmRecyclerViewAdapter<User, SellerAdapter.
 
         // SELLING PRODUCTS RECYCLER VIEW STARTS HERE
         LinearLayoutManager sellerLayoutManager = new LinearLayoutManager(activity);
-        sellerLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        sellerLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         holder.bwsSellerRecyclerView.setLayoutManager(sellerLayoutManager);
 
         RealmResults<Product> sellerProductList = holder.realm.where(Product.class).equalTo("sellerUUID", seller.getUserUUID()).findAll();

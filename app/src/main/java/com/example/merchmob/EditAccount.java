@@ -154,6 +154,7 @@ public class EditAccount extends AppCompatActivity {
         currentUser = realm.where(User.class).equalTo("username", loggedUsername).findFirst();
 
         if (currentUser != null) {
+            userEditImageName = currentUser.getUserImageName();
             editUsername.setText(currentUser.getUsername());
             editPassword.setText(currentUser.getPassword());
             editDescription.setText(currentUser.getUserDescription());
@@ -199,10 +200,12 @@ public class EditAccount extends AppCompatActivity {
         if(inputtedUsername.isEmpty()){
             Toast.makeText(EditAccount.this, "The username field must not be blank.", Toast.LENGTH_SHORT).show();
         } else {
-            long userSpecificCount = realm.where(User.class).equalTo("username", inputtedUsername).count();
-            boolean userExists = userSpecificCount > 1;
+            User otherUser = realm.where(User.class)
+                    .equalTo("username", inputtedUsername)
+                    .notEqualTo("userUUID", currentUser.getUserUUID())
+                    .findFirst();
 
-            if (userExists) {
+            if (otherUser != null) {
                 Toast.makeText(EditAccount.this, "The username already exists.", Toast.LENGTH_SHORT).show();
             } else {
                 realm.beginTransaction();
@@ -211,6 +214,10 @@ public class EditAccount extends AppCompatActivity {
                 currentUser.setUserDescription(inputtedDescription);
                 currentUser.setUserImageName(userEditImageName);
                 realm.commitTransaction();
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("loggedUsername", inputtedUsername);
+                editor.apply();
 
                 Toast.makeText(EditAccount.this, "The account has been updated.", Toast.LENGTH_SHORT).show();
                 finish();

@@ -202,10 +202,14 @@ public class ProductDetail extends AppCompatActivity {
                     newItem.setQuantitySelected(quantity);
                     innerUser.getUserCart().add(newItem);
                 }
+
+                // Update Stock Immediately
+                product.setStock(product.getStock() - quantity);
             }
         });
 
         Toast.makeText(this, quantity + " " + product.getItemName() + " added to cart", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override
