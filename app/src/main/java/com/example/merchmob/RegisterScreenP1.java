@@ -18,7 +18,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.listener.multi.BaseMultiplePermissionsListener;
@@ -31,7 +30,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import io.realm.Realm;
-import io.realm.RealmQuery;
 
 public class RegisterScreenP1 extends AppCompatActivity {
 
@@ -63,7 +61,7 @@ public class RegisterScreenP1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.register_register_screen_p1);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.pa_product_card), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
