@@ -114,6 +114,10 @@ this MUST match your package name in the <manifest> tag
             android:name=".CartScreen"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".PurchaseSucessScreen"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

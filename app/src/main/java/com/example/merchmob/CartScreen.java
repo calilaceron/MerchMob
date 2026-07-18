@@ -1,8 +1,8 @@
 package com.example.merchmob;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -65,14 +65,45 @@ public class CartScreen extends AppCompatActivity {
         backButton.setOnClickListener(v -> finish());
 
         checkoutButton.setOnClickListener(v -> {
-            if (currentUser.getUserCart().isEmpty()) {
+            if (currentUser == null || currentUser.getUserCart().isEmpty()) {
                 Toast.makeText(this, "Your cart is empty!", Toast.LENGTH_SHORT).show();
             } else {
-                // Implement checkout logic here if needed
-                Toast.makeText(this, "Checkout successful!", Toast.LENGTH_SHORT).show();
-                realm.executeTransaction(r -> currentUser.getUserCart().clear());
-                updateCartStats();
+                performCheckout();
             }
+        });
+    }
+
+    private void performCheckout() {
+        realm.executeTransaction(r -> {
+            int totalPurchased = 0;
+            for (CartItem item : currentUser.getUserCart()) {
+                Product product = r.where(Product.class).equalTo("productUUID", item.getProductUUID()).findFirst();
+                if (product != null) {
+                    // Update Stock
+                    int newStock = product.getStock() - item.getQuantitySelected();
+                    product.setStock(Math.max(0, newStock));
+
+                    // Update Seller Stats
+                    User seller = r.where(User.class).equalTo("userUUID", product.getSellerUUID()).findFirst();
+                    if (seller != null) {
+                        seller.setProductsSold(seller.getProductsSold() + item.getQuantitySelected());
+                    }
+
+                    totalPurchased += item.getQuantitySelected();
+                }
+            }
+
+            // Update Buyer Stats
+            currentUser.setProductsBought(currentUser.getProductsBought() + totalPurchased);
+
+            // Clear Cart
+            currentUser.getUserCart().clear();
+
+            // Navigate to Success Screen
+            Intent intent = new Intent(CartScreen.this, PurchaseSucessScreen.class);
+            intent.putExtra("itemsCount", totalPurchased);
+            startActivity(intent);
+            finish();
         });
     }
 
