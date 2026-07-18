@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/pa_product_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
@@ -23,7 +23,7 @@
         android:textAlignment="textStart"
         android:textColor="#B0A0AD"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/uaJoinDate"
+        app:layout_constraintBottom_toBottomOf="@+id/pa_price"
         app:layout_constraintEnd_toEndOf="@+id/uaRole"
         app:layout_constraintTop_toBottomOf="@+id/uaRole" />
 
@@ -39,12 +39,12 @@
         android:textAlignment="center"
         android:textColor="#FA5213"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/uaUsername"
+        app:layout_constraintBottom_toBottomOf="@+id/pa_product_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/uaUsername" />
+        app:layout_constraintTop_toTopOf="@+id/pa_product_name" />
 
     <TextView
-        android:id="@+id/uaJoinDate"
+        android:id="@+id/pa_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -54,11 +54,11 @@
         android:textAlignment="textStart"
         android:textColor="#9C8899"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/uaUsername"
-        app:layout_constraintTop_toBottomOf="@+id/uaUsername" />
+        app:layout_constraintStart_toStartOf="@+id/pa_product_name"
+        app:layout_constraintTop_toBottomOf="@+id/pa_product_name" />
 
     <TextView
-        android:id="@+id/uaUsername"
+        android:id="@+id/pa_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -68,14 +68,14 @@
         android:textAlignment="textStart"
         android:textColor="#3A1133"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/uaImageButton"
-        app:layout_constraintTop_toTopOf="@+id/uaImageButton" />
+        app:layout_constraintStart_toEndOf="@+id/pa_product_image"
+        app:layout_constraintTop_toTopOf="@+id/pa_product_image" />
 
     <ImageButton
-        android:id="@+id/uaImageButton"
+        android:id="@+id/pa_product_image"
         android:layout_width="58dp"
         android:layout_height="46dp"
-        android:background="null"
+        android:background="@null"
         android:src="@drawable/admin_user_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

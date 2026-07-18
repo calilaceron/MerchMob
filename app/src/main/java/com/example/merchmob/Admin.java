@@ -27,7 +27,7 @@ public class Admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_admin);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.pa_product_card), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -37,7 +37,7 @@ public class Admin extends AppCompatActivity {
 
     public void init(){
         adminTotalUserCount = findViewById(R.id.adminTotalUserCount);
-        adminBuyerCount = findViewById(R.id.adminBuyerCount);
+        adminBuyerCount = findViewById(R.id.sd_stock_count);
         adminSellerCount = findViewById(R.id.adminSellerCount);
         adminRecyclerView = findViewById(R.id.adminRecyclerView);
         realm = Realm.getDefaultInstance();

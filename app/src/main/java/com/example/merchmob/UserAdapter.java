@@ -2,20 +2,13 @@ package com.example.merchmob;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.MemoryPolicy;
@@ -41,9 +34,9 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User,UserAdapter.ViewH
         public ViewHolder(View userView){
                 super(userView);
 
-            uaImageButton = userView.findViewById(R.id.uaImageButton);
-            uaUsername = userView.findViewById(R.id.uaUsername);
-            uaJoinDate = userView.findViewById(R.id.uaJoinDate);
+            uaImageButton = userView.findViewById(R.id.pa_product_image);
+            uaUsername = userView.findViewById(R.id.pa_product_name);
+            uaJoinDate = userView.findViewById(R.id.pa_price);
             uaRole = userView.findViewById(R.id.uaRole);
             uaProductInfo = userView.findViewById(R.id.uaProductInfo);
 
