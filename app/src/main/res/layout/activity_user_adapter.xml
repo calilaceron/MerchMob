@@ -23,7 +23,7 @@
         android:textAlignment="textStart"
         android:textColor="#B0A0AD"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/pa_price"
+        app:layout_constraintBottom_toBottomOf="@+id/ci_desc"
         app:layout_constraintEnd_toEndOf="@+id/uaRole"
         app:layout_constraintTop_toBottomOf="@+id/uaRole" />
 
@@ -39,12 +39,12 @@
         android:textAlignment="center"
         android:textColor="#FA5213"
         android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="@+id/pa_product_name"
+        app:layout_constraintBottom_toBottomOf="@+id/ci_product_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pa_product_name" />
+        app:layout_constraintTop_toTopOf="@+id/ci_product_name" />
 
     <TextView
-        android:id="@+id/pa_price"
+        android:id="@+id/ci_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -54,11 +54,11 @@
         android:textAlignment="textStart"
         android:textColor="#9C8899"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/pa_product_name"
-        app:layout_constraintTop_toBottomOf="@+id/pa_product_name" />
+        app:layout_constraintStart_toStartOf="@+id/ci_product_name"
+        app:layout_constraintTop_toBottomOf="@+id/ci_product_name" />
 
     <TextView
-        android:id="@+id/pa_product_name"
+        android:id="@+id/ci_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

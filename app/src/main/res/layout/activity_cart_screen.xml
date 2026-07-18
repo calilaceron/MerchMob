@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9f9f9"
+    tools:context=".CartScreen"
+    tools:layout_editor_absoluteX="199dp"
+    tools:layout_editor_absoluteY="4dp">
+
+    <TextView
+        android:id="@+id/cart_total_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Php 300"
+        android:textAlignment="center"
+        android:textColor="#FA5213"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView26"
+        app:layout_constraintEnd_toEndOf="@+id/cart_cartiItem_total"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toTopOf="@+id/textView26"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Total"
+        android:textAlignment="center"
+        android:textColor="#FA5213"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/cart_cartiItem_total"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cart_cartiItem_total"
+        app:layout_constraintTop_toBottomOf="@+id/cart_cartiItem_total" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="Your Cart"
+        android:textAlignment="center"
+        android:textColor="#3A1133"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cart_cartItem_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexend_medium"
+        android:letterSpacing="-0.02"
+        android:text="3 Items in Cart"
+        android:textAlignment="center"
+        android:textColor="#FA5213"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView21"
+        app:layout_constraintStart_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <ImageButton
+        android:id="@+id/apBackButton2"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="40dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintEnd_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toTopOf="@+id/textView21"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/back_icon"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_cartiItem_total"
+        android:layout_width="307dp"
+        android:layout_height="369dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView21"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/cart_cartItem_total" />
+
+    <Button
+        android:id="@+id/cart_checkout_button"
+        android:layout_width="294dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="108dp"
+        android:backgroundTint="#FA5213"
+        android:fontFamily="@font/lexend"
+        android:letterSpacing="-0.02"
+        android:text="Checkout"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/cart_cartiItem_total"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cart_cartiItem_total"
+        app:layout_constraintTop_toBottomOf="@+id/cart_cartiItem_total" />
+</androidx.constraintlayout.widget.ConstraintLayout>

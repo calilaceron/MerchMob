@@ -37,9 +37,9 @@ public class SellerProductAdapter extends RealmRecyclerViewAdapter<Product, Sell
         public ViewHolder(View sellerProductsView) {
             super(sellerProductsView);
 
-            sdProductName = sellerProductsView.findViewById(R.id.pa_product_name);
-            sdProductPrice = sellerProductsView.findViewById(R.id.pa_price);
-            sdStockTag = sellerProductsView.findViewById(R.id.pa_stock_tag);
+            sdProductName = sellerProductsView.findViewById(R.id.ci_product_name);
+            sdProductPrice = sellerProductsView.findViewById(R.id.ci_desc);
+            sdStockTag = sellerProductsView.findViewById(R.id.ci_qty);
             sdImageView = sellerProductsView.findViewById(R.id.pa_product_image);
             sdEditButton = sellerProductsView.findViewById(R.id.pa_edit_button);
             sdDeleteButton = sellerProductsView.findViewById(R.id.pa_delete_button);

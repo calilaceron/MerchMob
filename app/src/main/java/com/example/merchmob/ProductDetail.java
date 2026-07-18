@@ -22,6 +22,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 
 import io.realm.Realm;
+import io.realm.RealmList;
 
 public class ProductDetail extends AppCompatActivity {
     String productUUID;
@@ -132,8 +133,12 @@ public class ProductDetail extends AppCompatActivity {
         pdPlusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                quantity++;
-                pdQuantity.setText(String.valueOf(quantity));
+                if (product != null && quantity < product.getStock()) {
+                    quantity++;
+                    pdQuantity.setText(String.valueOf(quantity));
+                } else {
+                    Toast.makeText(ProductDetail.this, "Cannot exceed available stock", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -146,28 +151,56 @@ public class ProductDetail extends AppCompatActivity {
     }
 
     public void addToCart(){
+        if (product == null || product.getStock() <= 0) {
+            Toast.makeText(this, "Product is out of stock", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String loggedUsername = prefs.getString("loggedUsername", "");
+        User user = realm.where(User.class).equalTo("username", loggedUsername).findFirst();
+        if (user == null) return;
+
+        CartItem existingItem = null;
+        for(CartItem item : user.getUserCart()){
+            if(item.getProductUUID().equals(productUUID)){
+                existingItem = item;
+                break;
+            }
+        }
+
+        int currentInCart = (existingItem != null) ? existingItem.getQuantitySelected() : 0;
+        int totalRequested = currentInCart + quantity;
+
+        if (totalRequested > product.getStock()) {
+            Toast.makeText(this, "Limit reached. Max available: " + product.getStock() + " (In cart: " + currentInCart + ")", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                User user = realm.where(User.class).equalTo("username", loggedUsername).findFirst();
+                User innerUser = realm.where(User.class).equalTo("username", loggedUsername).findFirst();
+                if (innerUser == null) return;
 
-                CartItem existingItem = null;
-                for(CartItem item : user.getUserCart()){
+                if (innerUser.getUserCart() == null) {
+                    innerUser.setUserCart(new RealmList<>());
+                }
+
+                CartItem innerExistingItem = null;
+                for(CartItem item : innerUser.getUserCart()){
                     if(item.getProductUUID().equals(productUUID)){
-                        existingItem = item;
+                        innerExistingItem = item;
                         break;
                     }
                 }
 
-                if(existingItem!=null){
-                    existingItem.setQuantitySelected(existingItem.getQuantitySelected()+quantity);
+                if(innerExistingItem != null){
+                    innerExistingItem.setQuantitySelected(totalRequested);
                 } else {
-                    CartItem newItem = new CartItem();
+                    CartItem newItem = realm.createObject(CartItem.class);
                     newItem.setProductUUID(productUUID);
                     newItem.setQuantitySelected(quantity);
-                    user.getUserCart().add(newItem);
+                    innerUser.getUserCart().add(newItem);
                 }
             }
         });

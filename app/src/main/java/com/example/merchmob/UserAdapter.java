@@ -35,8 +35,8 @@ public class UserAdapter extends RealmRecyclerViewAdapter<User,UserAdapter.ViewH
                 super(userView);
 
             uaImageButton = userView.findViewById(R.id.pa_product_image);
-            uaUsername = userView.findViewById(R.id.pa_product_name);
-            uaJoinDate = userView.findViewById(R.id.pa_price);
+            uaUsername = userView.findViewById(R.id.ci_product_name);
+            uaJoinDate = userView.findViewById(R.id.ci_desc);
             uaRole = userView.findViewById(R.id.uaRole);
             uaProductInfo = userView.findViewById(R.id.uaProductInfo);
 
