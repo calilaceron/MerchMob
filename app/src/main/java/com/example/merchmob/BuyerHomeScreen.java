@@ -82,7 +82,7 @@ public class BuyerHomeScreen extends AppCompatActivity {
     }
 
     public void cartButtonClick(){
-//        Intent buyerCartScreen = new Intent(BuyerHomeScreen.this, CartScreen.class);
-//        startActivity(buyerCartScreen);
+        Intent buyerCartScreen = new Intent(BuyerHomeScreen.this, CartScreen.class);
+        startActivity(buyerCartScreen);
     }
 }
